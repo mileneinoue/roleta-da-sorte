@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roleta da sorte</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Pacifico&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="caixa">
+    <div class="emojis">❤️🥠</div>
+    <h1>Qual é a sua mensagem da sorte?</h1>
+
+    <section class="roleta" aria-live="polite">
+      <div class="ponteiro" aria-hidden="true"></div>
+
+      <div id="disco" class="disco">
+        <div id="etiquetas" class="etiquetas" aria-hidden="true"></div>
+      </div>
+
+      <div class="miolo" aria-hidden="true"></div>
+    </section>
+
+    <div class="acoes">
+      <button id="btnGirar">Girar</button>
+      <p id="saida" class="saida"></p>
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

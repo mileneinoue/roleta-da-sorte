@@ -1,0 +1,140 @@
+:root{
+  --vermelho:#d62828;
+  --branco:#fff;
+  --rosa:#ffe3ea;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  background:var(--rosa);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.caixa{
+  width:min(95vw, 720px);
+  text-align:center;
+  padding:24px 16px 40px;
+  background:transparent;
+}
+
+.emojis{ font-size:40px; user-select:none; }
+
+h1{
+  font-family: "Pacifico", "Emilys Candy", cursive;
+  font-size:32px;
+  margin:8px 0 18px;
+  color:var(--vermelho);
+}
+
+/* área da roleta */
+.roleta{
+  position:relative;
+  margin:0 auto 16px;
+  width:min(88vw, 360px);
+  aspect-ratio:1 / 1;
+}
+
+/* triângulo do topo */
+.ponteiro{
+  position:absolute;
+  left:50%;
+  top:-8px;
+  transform:translateX(-50%);
+  width:0; height:0;
+  border-left:14px solid transparent;
+  border-right:14px solid transparent;
+  border-bottom:26px solid var(--vermelho);
+  z-index:3;
+}
+
+/* círculo que gira */
+.disco{
+  position:absolute; inset:0;
+  margin:auto;
+  border-radius:50%;
+  background:
+    conic-gradient(
+      from -90deg,
+      var(--vermelho) 0 45deg,
+      var(--branco) 45deg 90deg,
+      var(--vermelho) 90deg 135deg,
+      var(--branco) 135deg 180deg,
+      var(--vermelho) 180deg 225deg,
+      var(--branco) 225deg 270deg,
+      var(--vermelho) 270deg 315deg,
+      var(--branco) 315deg 360deg
+    );
+  transition: transform 4s cubic-bezier(.22,.9,.08,1);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+/* bolinha do meio */
+.miolo{
+  position:absolute; inset:0;
+  margin:auto;
+  width:22%;
+  aspect-ratio:1/1;
+  border-radius:50%;
+  background:#fff;
+  border:6px solid var(--vermelho);
+  z-index:2;
+}
+
+/* onde ficam os emojis/textos das fatias */
+.etiquetas{
+  position:absolute; inset:0;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+/* cada etiqueta */
+.etiquetas span{
+  position:absolute;
+  left:50%; top:50%;
+  transform:translate(-50%,-50%);
+  width:50%;
+  height:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:26px;
+  color:#9a0f1b;
+}
+
+/* texto branco nas áreas vermelhas */
+.etiquetas span.branco{
+  color:#fff;
+  text-shadow:0 1px 0 rgba(0,0,0,.25);
+}
+
+/* controles */
+.acoes{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+}
+
+button{
+  border:0;
+  background:var(--vermelho);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:999px;
+  font-weight:800;
+  cursor:pointer;
+}
+button:disabled{ opacity:.6; cursor:not-allowed; }
+
+.saida{
+  min-height:2.2em;
+  font-size:16px;
+  font-weight:600;
+  color:#6a0b16;
+}
